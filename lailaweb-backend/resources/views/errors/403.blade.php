@@ -1,0 +1,1 @@
+ban ko co quyen

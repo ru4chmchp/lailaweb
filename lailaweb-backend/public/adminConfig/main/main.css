@@ -1,0 +1,10 @@
+.pagination {
+    float: right !important;
+}
+.user_name {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.sidebar-dark-primary{
+    background: #bec3c8 linear-gradient(180deg,#38546c,#4382c0) repeat-x!important;
+}

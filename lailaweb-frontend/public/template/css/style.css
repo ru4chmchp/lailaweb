@@ -1,0 +1,121 @@
+/* Your custom styles */
+.flex-center{
+    height: 4rem;
+}
+.align-items-center{
+    
+    padding: 1.5rem;
+}
+.height_fish {
+    height: 30rem;
+}
+.height_fish_category{
+    height: auto;
+}
+.carousel-caption {
+    color: white; /* Màu chữ */
+    padding: 20px; /* Khoảng cách nội dung từ viền */
+}
+
+.carousel-caption h4 {
+    font-size: 24px; /* Kích thước tiêu đề */
+    margin-bottom: 10px; /* Khoảng cách giữa tiêu đề và nội dung */
+}
+.height-product{
+    width: 20rem;
+    height: 10rem;
+    object-fit: cover;
+}
+.height-product-recommend{
+    width: 100%;
+    height: 10rem;
+}
+
+.height-card{
+    height: 25rem;
+}
+.height-card{
+    height: 25rem;
+}
+.carousel-caption p {
+    font-size: 16px; /* Kích thước nội dung */
+}
+.font-size-titel{
+    font-size: 16px; /* Kích thước nội dung */
+}
+.img-card {
+    width: 100%; /* hoặc kích thước cố định khác */
+    height: 200px; /* hoặc kích thước cố định khác */
+}
+
+.img-intro {
+    width: 100%;
+    height: 25rem;
+}
+
+.img-newsletter{
+    width: 100%;
+    height: 20rem;
+}
+
+.border-intro{
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    border-radius: 1rem;
+}
+.button-56 {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
