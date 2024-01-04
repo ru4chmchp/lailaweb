@@ -2,44 +2,37 @@
 @section('title')
     <title>Categories</title>
 @endsection
-@section('js')
-    <script src="{{ asset('vendors/sweetAlert/sweetalert2@11.js') }}"></script>
-    <script src="{{ asset('adminConfig/product/index/index.js') }}"></script>
-@endsection
 @section('content')
     <div class="content-wrapper">
-        @include('layouts.admin-layouts.content-header', ['name' => 'Categories', 'key' => ''])
+        @include('layouts.admin-layouts.content-header', ['name' => 'Customers', 'key' => ''])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('categories.create') }}" class="btn btn-success float-right m-2">Add</a>
-                    </div>
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Danh Mục</th>
+                                    <th scope="col">Tài khoảng</th>
                                     <th scope="col">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $value)
+                                @foreach ($customers as $value)
                                     <tr>
                                         <th scope="row">{{ $value->id }}</th>
                                         <td>{{ $value->name }}</td>
                                         <td>
-                                            <a href="" data-url="{{ route('categories.delete',['id' =>$value->id]) }}"
-                                                class="btn btn-danger action_delete">Xóa</a>
-                                            <a href="{{ route('categories.edit', ['id' => $value->id]) }}"
+                                            <a href="{{ route('customers.delete', ['id' => $value->id]) }}"
+                                                class="btn btn-danger">Xóa</a>
+                                            <a href="{{ route('customers.edit', ['id' => $value->id]) }}"
                                                 class="btn btn-warning">Chỉnh sửa</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $categories->links('pagination::bootstrap-4') }}
+                        {{ $customers->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

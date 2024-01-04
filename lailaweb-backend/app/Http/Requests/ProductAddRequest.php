@@ -24,7 +24,9 @@ class ProductAddRequest extends FormRequest
         return [
             'name' => 'bail|required|unique:products,name,NULL,id,deleted_at,NULL|max:255|min:5',
             'price' => 'required|numeric',
+            'price_sale' => 'required|numeric',
             'category_id' => 'required',
+            'tags' => 'required',
             'content' => 'required'
         ];
     }
@@ -37,6 +39,9 @@ class ProductAddRequest extends FormRequest
             'name.min'=> 'Kiệm từ à ? :) > 5 kí tự mới đc ',
             'price.required' => 'Bán free à ?',
             'price.numeric' => 'Nhập số vào ',
+            'price_sale.required' => 'Bán free à ?',
+            'price_sale.numeric' => 'Nhập số vào ',
+            'tags.numeric' => 'Nhập tags vào ',
             'category_id.required' => 'Mục nào khai mau',
             'content.required' => 'Content k có biết cái này là cái gì'
         ];

@@ -3,10 +3,11 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('template\img\home\fishlogo.png') }}" type="image/x-icon">
     @yield('title')
     <!-- CSS -->
     @yield('css')
@@ -45,6 +46,7 @@
 <script type="text/javascript" src="{{ asset('template/js/bootstrap.min.js') }}"></script>
 <!-- MDB core JavaScript -->
 {{-- Carousel --}}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="{{ asset('template/js/mdb.min.js') }}"></script>
 <script type="text/javascript">
@@ -60,9 +62,8 @@
     $(document).ready(function() {
         $('.mdb-select').materialSelect();
     });
-
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
+    
+    
     // Initialization for ES Users
     $('.owl-carousel').owlCarousel({
         loop: true,

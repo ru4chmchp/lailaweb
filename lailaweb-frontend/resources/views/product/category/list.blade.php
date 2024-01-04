@@ -123,7 +123,7 @@
                                         <div class="card-body">
 
                                             <!-- Category & Title-->
-                                            <h5 class="card-title mb-1"><strong><a href=""
+                                            <h5 class="card-title mb-1"><strong><a href="{{ route('detailProduct',['slug' => $value->slug, 'id' => $value->id]) }}"
                                                         class="dark-grey-text">{{ $value->name }}</a></strong></h5><span
                                                 class="badge badge-danger mb-2">bestseller</span>
 

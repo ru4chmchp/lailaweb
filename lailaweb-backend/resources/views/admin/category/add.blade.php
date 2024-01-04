@@ -13,14 +13,20 @@
                             @csrf
                             <div class="form-group">
                                 <label>Tên Danh Mục</label>
-                                <input type="text" class="form-control" placeholder="Nhập tên danh mục" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nhập tên danh mục" name="name">
+                                @error('name')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn Danh Mục</label>
-                                <select class="form-control" name="parent_id">
+                                <select class="form-control @error('parent_id') is-invalid @enderror" name="parent_id">
                                     <option value="0">Chọn danh mục cha</option>
                                     {!! $htmlOption !!}
                                 </select>
+                                @error('parent_id')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

@@ -8,9 +8,7 @@
 @endsection
 @section('js')
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('adminConfig/user/add/add.js') }}">
-        
-    </script>
+    <script src="{{ asset('adminConfig/user/add/add.js') }}"></script>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -19,30 +17,42 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="POST">
+                        <form action="{{ route('users.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Tên User</label>
-                                <input type="text" class="form-control" placeholder="Nhập tên User" name="name"
-                                    value="{{ old('name') }}">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                    placeholder="Nhập tên User" name="name" value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Tên Email</label>
-                                <input type="email" class="form-control" placeholder="Nhập tên Email" name="email"
-                                    value="{{ old('email') }}">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="Nhập tên Email" name="email" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Nhập Password" name="password">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập Password" name="password">
+                                @error('password')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn vai trò</label>
-                                <select name="role_id[]" class="form-control tag_select_choose" multiple>
+                                <select name="role_id[]" class="form-control tag_select_choose @error('role_id') is-invalid @enderror" multiple>
                                     <option value=""></option>
                                     @foreach ($roles as $value)
                                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('role_id')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
 
 

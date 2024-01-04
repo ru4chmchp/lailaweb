@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-gradient-dark">
     <a href="{{ route('dashboard') }}" class="brand-link">
-        <img src="{{ asset('adminResource/dist/img/birdlogo.png') }}" alt="AdminLTE Logo"
+        <img src="{{ asset('adminResource\docs\assets\img\fishlogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3 bg-white" style="opacity: .8">
         <span class="brand-text font-weight-normal">Dashboard</span>
     </a>
@@ -64,6 +64,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('customers.index') }}" class="nav-link">
+                        <i class='nav-icon bx-sm bx bxs-group'></i>
+                        <p class="">
+                            Danh sách khách hàng
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <div class="user-panel mt-3 pb-3 d-flex rounded border-white">
@@ -75,7 +83,7 @@
                 <a href="" class="d-block user_name">{{ auth()->user()->name }}</a>
             </div>
             <div class="info">
-                <a href="" class="bx bx-log-out bx-sm ml-3"></a>
+                <a href="{{ route('logout') }}" class="bx bx-log-out bx-sm ml-3"></a>
             </div>
             
         </div>

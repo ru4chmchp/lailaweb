@@ -41,7 +41,7 @@
                             <div class="card-body">
 
                                 <!-- Category & Title -->
-                                <h5 class="card-title mb-1"><strong><a href=""
+                                <h5 class="card-title mb-1"><strong><a href="{{ route('detailProduct',['slug' => $value->slug, 'id' => $value->id]) }}"
                                             class="dark-grey-text">{{ $value->name }}</a></strong>
                                 </h5>
 
@@ -72,8 +72,8 @@
 
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Cart"><i class="fas fa-shopping-cart fa-xl ml-3"></i></a>
+                                            <a class="add_to_cart" data-toggle="tooltip" data-placement="top" data-url="{{ route('product.addToCart', ['id' => $value->id]) }}"
+                                                title="Add to Cart"><i class="fas fa-shopping-cart fa-xl ml-3 "></i></a>
 
                                         </span>
 

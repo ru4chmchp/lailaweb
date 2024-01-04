@@ -5,7 +5,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark primary-color mt-5">
 
         <!-- Navbar brand -->
-        <a class="font-weight-bold white-text mr-4" href="#">Categories</a>
+        <a class="font-weight-bold white-text mr-4" href="">Danh mục</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -36,7 +36,7 @@
                                 <ul class="caret-style pl-0">
                                         @foreach ($valueChil->products as $item)
                                             
-                                        <li><a class="menu-item mb-0 " href="">{{ $item->name }}</a></li>
+                                        <li><a class="menu-item mb-0 " href="{{ route('detailProduct',['slug' => $item->slug, 'id' => $item->id]) }}">{{ $item->name }}</a></li>
                                         @endforeach
                                 </ul>
                                

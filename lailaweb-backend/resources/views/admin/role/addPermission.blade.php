@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('layouts.admin-layouts.content-header', ['name' => 'Menus', 'key' => 'Create'])
+        @include('layouts.admin-layouts.content-header', ['name' => 'Permissions', 'key' => 'Create'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

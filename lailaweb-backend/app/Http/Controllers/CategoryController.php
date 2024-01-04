@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Components\Recusive;
+use App\Http\Requests\CategoriesAddRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -29,7 +31,7 @@ class CategoryController extends Controller
         $categories = $this->category->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
-    public function store(Request $request)
+    public function store(CategoriesAddRequest $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string',
@@ -56,8 +58,19 @@ class CategoryController extends Controller
     }
     public function destroy($id)
     {
-        $this->category->find($id)->delete();
-        return redirect()->route('categories.index');
+        try {
+            $this->category->find($id)->delete();
+            return response()->json([
+                'code' => 200,
+                'message' => 'success'
+            ], 200);
+        } catch (\Exception $exception) {
+            Log::error('Message: ' . $exception->getMessage() . ' Line: ' . $exception->getLine());
+            return response()->json([
+                'code' => 500,
+                'message' => 'fail'
+            ], 500);
+        }
     }
     public function update($id, Request $request)
     {

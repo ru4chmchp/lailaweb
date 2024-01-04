@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductController;
@@ -22,8 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', [AdminController::class, 'loginAdmin']);
+Route::get('/admin', [AdminController::class, 'loginAdmin'])->name('loginadmin');
 Route::post('/admin', [AdminController::class, 'postLoginAdmin']);
+Route::get('/logout',[AdminController::class,'logout'])->name('logout');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -121,9 +124,20 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}', [RoleController::class, 'destroy'])->name('roles.delete');
 
         Route::prefix('/permissions')->group(function () {
-            Route::get('/create', [RoleController::class, 'createPermission'])->name('permissions.create');
+            Route::get('/create', [RoleController::class, 'createPermission'])->name('permissions.index');
 
             Route::post('/store', [RoleController::class, 'storePermission'])->name('permissions.store');
         });
+    });
+
+    Route::prefix('/customers')->group(function () {
+        Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customers.edit');
+
+        Route::post('/update/{id}', [CustomerController::class, 'update'])->name('customers.update');
+
+        Route::get('/delete/{id}', [CustomerController::class, 'destroy'])->name('customers.delete');
+
     });
 });

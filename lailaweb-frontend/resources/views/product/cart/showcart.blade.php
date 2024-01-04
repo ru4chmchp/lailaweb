@@ -9,26 +9,74 @@
 
 @section('js')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-
-        // MDB Lightbox Init
-        $(function() {
-            $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-        });
-
-        // Tooltips Initialization
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-
-        // Material Select Initialization
+    <script>
         $(document).ready(function() {
+            $('.cart_wrapper').on('click', '.decrease', function() {
+                let quantityElement = $(this).closest('tr').find('.qty');
+                let quantity = parseInt(quantityElement.text());
+                let id = $(this).data('id');
 
-            $('.mdb-select').material_select();
+                if (quantity > 0) {
+                    quantity--;
+                    quantityElement.text(quantity);
+                    updateCart(id, quantity);
+                }
+            });
+
+            $('.cart_wrapper').on('click', '.increase', function() {
+                let quantityElement = $(this).closest('tr').find('.qty');
+                let quantity = parseInt(quantityElement.text());
+                let id = $(this).data('id');
+
+                quantity++; // Tăng giá trị lên 1
+                quantityElement.text(quantity);
+                updateCart(id, quantity);
+            });
+
+            $('.cart_wrapper').on('click', '.cart_delete', function() {
+                let id = $(this).data('id');
+                deleteCart(id);
+            });
+
+            function deleteCart(id) {
+                const urlDelete = $('.card-ecommerce').data('url');
+                $.ajax({
+                    type: "GET",
+                    url: urlDelete,
+                    data: {
+                        id: id,
+                    },
+                    success: function(data) {
+                        if (data.code === 200) {
+                            $('.cart_wrapper').html(data.cart_component);
+                        }
+                    },
+                    error: function() {
+
+                    }
+                });
+            }
+
+            function updateCart(id, quantity) {
+                const urlUpdate = $('.update_cart_url').data('url');
+                $.ajax({
+                    type: "GET",
+                    url: urlUpdate,
+                    data: {
+                        id: id,
+                        quantity: quantity
+                    },
+                    success: function(data) {
+                        if (data.code === 200) {
+                            $('.cart_wrapper').html(data.cart_component);
+                        }
+                    },
+                    error: function() {
+
+                    }
+                });
+            }
         });
-
-        // SideNav Initialization
-        $(".button-collapse").sideNav();
     </script>
 @endsection
 
@@ -46,179 +94,7 @@
             <div class="container">
 
                 <!-- Section cart -->
-                <section class="section my-5 pb-5">
-
-                    <div class="card card-ecommerce">
-
-                        <div class="card-body">
-
-                            <!-- Shopping Cart table -->
-                            <div class="table-responsive">
-
-                                <table class="table product-table table-cart-v-2">
-
-                                    <!-- Table head -->
-                                    <thead class="mdb-color lighten-5">
-
-                                        <tr>
-
-                                            <th></th>
-
-                                            <th class="font-weight-bold">
-
-                                                <strong>Product</strong>
-
-                                            </th>
-
-                                            <th></th>
-
-                                            <th class="font-weight-bold">
-
-                                                <strong>Price</strong>
-
-                                            </th>
-
-                                            <th class="font-weight-bold">
-
-                                                <strong>QTY</strong>
-
-                                            </th>
-
-                                            <th class="font-weight-bold">
-
-                                                <strong>Amount</strong>
-
-                                            </th>
-
-                                            <th></th>
-
-                                        </tr>
-
-                                    </thead>
-                                    <!-- Table head -->
-
-                                    <!-- Table body -->
-                                    <tbody>
-                                        <!-- First row -->
-                                        <tr>
-
-                                            <th scope="row">
-
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg"
-                                                    alt="" class="img-fluid z-depth-0">
-
-                                            </th>
-
-                                            <td>
-
-                                                <h5 class="mt-3">
-
-                                                    <strong>iPhone</strong>
-
-                                                </h5>
-
-                                                <p class="text-muted">Apple</p>
-
-                                            </td>
-
-                                            <td>White</td>
-
-                                            <td></td>
-
-                                            <td>$800</td>
-
-                                            <td class="text-center text-md-left">
-
-                                                <span class="qty">1 </span>
-
-                                                <div class="btn-group radio-group ml-2" data-toggle="buttons">
-
-                                                    <label class="btn btn-sm btn-primary btn-rounded">
-
-                                                        <input type="radio" name="options" id="option1">&mdash;
-
-                                                    </label>
-
-                                                    <label class="btn btn-sm btn-primary btn-rounded">
-
-                                                        <input type="radio" name="options" id="option2">+
-
-                                                    </label>
-
-                                                </div>
-
-                                            </td>
-
-                                            <td class="font-weight-bold">
-
-                                                <strong>$800</strong>
-
-                                            </td>
-
-                                            <td>
-
-                                                <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip"
-                                                    data-placement="top" title="Remove item">X
-
-                                                </button>
-
-                                            </td>
-
-                                        </tr>
-                                        <!-- First row -->
-
-                                        <!-- Fourth row -->
-                                        <tr>
-
-                                            <td colspan="3"></td>
-
-                                            <td>
-
-                                                <h4 class="mt-2">
-
-                                                    <strong>Total</strong>
-
-                                                </h4>
-
-                                            </td>
-
-                                            <td class="text-right">
-
-                                                <h4 class="mt-2">
-
-                                                    <strong>$2600</strong>
-
-                                                </h4>
-
-                                            </td>
-
-                                            <td colspan="3" class="text-right">
-
-                                                <button type="button" class="btn btn-primary btn-rounded">Complete
-                                                    purchase
-
-                                                    <i class="fas fa-angle-right right"></i>
-
-                                                </button>
-
-                                            </td>
-
-                                        </tr>
-                                        <!-- Fourth row -->
-
-                                    </tbody>
-                                    <!-- Table body -->
-
-                                </table>
-
-                            </div>
-                            <!-- Shopping Cart table -->
-
-                        </div>
-
-                    </div>
-
-                </section>
+                @include('product.cart.components.cartupdate')
                 <!-- Section cart -->
 
                 <!-- Section products -->

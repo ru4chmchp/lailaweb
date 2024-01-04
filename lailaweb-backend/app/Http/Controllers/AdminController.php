@@ -26,4 +26,8 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'Invalid email or password');
         }
     }
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('loginadmin');
+    }
 }

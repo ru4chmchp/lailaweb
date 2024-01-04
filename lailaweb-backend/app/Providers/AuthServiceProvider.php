@@ -46,4 +46,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('category-edit', [CategoryPolicy::class, 'update']);
         Gate::define('category-delete', [CategoryPolicy::class, 'delete']);
     }
+    
 }

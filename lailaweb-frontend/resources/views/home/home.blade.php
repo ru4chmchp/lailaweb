@@ -9,6 +9,30 @@
 
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function addToCart(event) {
+                event.preventDefault();
+                let urlCart  = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: urlCart,
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.code === 200) {
+                            alert('them sp vao do hang thanh cong')
+                        }
+                    },
+                    error: function() {
+
+                    }
+                });
+            }
+
+            $(document).on('click', '.add_to_cart', addToCart);
+        });
+    </script>
 @endsection
 
 @section('body')

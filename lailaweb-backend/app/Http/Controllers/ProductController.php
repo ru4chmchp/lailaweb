@@ -13,6 +13,7 @@ use App\Traits\StorageImageTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -28,11 +29,11 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->product->latest()->paginate(5);
-        return view('admin.product.index',compact('products'));
+        return view('admin.product.index', compact('products'));
     }
     public function getSelectOption($parent_id)
     {
-        $selectRecusive = new Recusive($this->category->all()); 
+        $selectRecusive = new Recusive($this->category->all());
         $htmlOption = $selectRecusive->fatherRecusive($parent_id);
         return $htmlOption;
     }
@@ -45,12 +46,16 @@ class ProductController extends Controller
     {
         try {
             DB::beginTransaction();
+
             $dataProductUpdate = [
                 'name' => $request->name,
                 'price' => $request->price,
+                'price_sale' => $request->price_sale,
                 'content' => $request->content,
                 'user_id' => auth()->id(),
-                'category_id' => $request->category_id
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'slug' => Str::slug($request->name)
             ];
             $dataUploadFeatureImage = $this->storageImageTrait($request, 'feature_image_path', 'product');
             if (!empty($dataUploadFeatureImage)) {
@@ -69,7 +74,7 @@ class ProductController extends Controller
                 }
             }
             // them tag vao product
-            $tagIds= [];
+            $tagIds = [];
             if (!empty($request->tags)) {
                 foreach ($request->tags as $tagItem) {
                     $tagInstance = $this->tag->firstOrCreate([
@@ -90,7 +95,7 @@ class ProductController extends Controller
     {
         $product = $this->product->find($id);
         $htmlOption = $this->getSelectOption($product->category_id);
-        return view('admin.product.edit',compact('htmlOption','product'));
+        return view('admin.product.edit', compact('htmlOption', 'product'));
     }
     public function update(Request $request, $id)
     {
@@ -101,7 +106,10 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'content' => $request->content,
                 'user_id' => auth()->id(),
-                'category_id' => $request->category_id
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'slug' => Str::slug($request->name),
+                'price_sale' => $request->price_sale
             ];
             $dataUploadFeatureImage = $this->storageImageTrait($request, 'feature_image_path', 'product');
             if (!empty($dataUploadFeatureImage)) {
@@ -112,7 +120,7 @@ class ProductController extends Controller
             $product = $this->product->find($id);
             // them du lieu vao product_image
             if ($request->hasFile('image_path')) {
-                $this->productImage->where('product_id',$id)->delete();
+                $this->productImage->where('product_id', $id)->delete();
                 foreach ($request->image_path as $fileItem) {
                     $dataProductImageDetail = $this->storageTraitUploadMultiple($fileItem, 'product');
                     $product->images()->create([
@@ -138,20 +146,20 @@ class ProductController extends Controller
             Log::error('Message: ' . $exception->getMessage() . ' Line: ' . $exception->getLine());
         }
     }
-    public function destroy($id) 
+    public function destroy($id)
     {
         try {
             $this->product->find($id)->delete();
             return response()->json([
                 'code' => 200,
                 'message' => 'success'
-            ],200);
+            ], 200);
         } catch (\Exception $exception) {
             Log::error('Message: ' . $exception->getMessage() . ' Line: ' . $exception->getLine());
             return response()->json([
                 'code' => 500,
                 'message' => 'fail'
-            ],500);
+            ], 500);
         }
     }
 }

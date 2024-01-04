@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserAddRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class UserController extends Controller
         $roles = $this->role->all();
         return view('admin.user.add', compact('roles'));
     }
-    public function store(Request $request)
+    public function store(UserAddRequest $request)
     {
         try {
             DB::beginTransaction();

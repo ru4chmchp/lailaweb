@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('adminResource/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminConfig/main/main.css') }}">
     <!-- Thay đổi đường dẫn (href) tới đường dẫn của hình ảnh favicon của bạn -->
-    <link rel="icon" href="{{ asset('adminResource/dist/img/birdlogo.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('adminResource\docs\assets\img\fishlogo.png') }}" type="image/x-icon">
     <!-- Box style -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @yield('css')

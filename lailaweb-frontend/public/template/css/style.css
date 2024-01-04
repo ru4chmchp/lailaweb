@@ -6,6 +6,37 @@
     
     padding: 1.5rem;
 }
+.me-3 {
+    margin-right: 1rem !important;
+}
+.form-outline {
+    position: relative;
+    width: 100%;
+}
+.me-2 {
+    margin-right: .5rem !important;
+}
+.h-custom {
+    height: calc(100% - 73px);
+}
+.fw-bold {
+    font-weight: 700 !important;
+}
+.form-outline .form-control~.form-label {
+    position: absolute;
+    top: 0;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left: .75rem;
+    padding-top: .37rem;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: all .2s ease-out;
+    color: #bdbdbd;
+    margin-bottom: 0;
+}
 .height_fish {
     height: 30rem;
 }
@@ -46,6 +77,10 @@
 .img-card {
     width: 100%; /* hoặc kích thước cố định khác */
     height: 200px; /* hoặc kích thước cố định khác */
+}
+.img-card2 {
+    width: 100%; /* hoặc kích thước cố định khác */
+    height: 30rem; /* hoặc kích thước cố định khác */
 }
 
 .img-intro {

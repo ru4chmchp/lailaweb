@@ -19,15 +19,15 @@
                             <div class="form-group col-md-6">
                                 <label>Tên Sản Phẩm</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    placeholder="Nhập tên sản phẩm" name="name" value="{{ old('name'); }}">
+                                    placeholder="Nhập tên sản phẩm" name="name" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="alert alert-danger m-2">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Giá Sản Phẩm</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    placeholder="Nhập giá sản phẩm" name="price" value="{{ old('price'); }}">
+                                <input type="text" class="form-control @error('price') is-invalid @enderror"
+                                    placeholder="Nhập giá sản phẩm" name="price" value="{{ old('price') }}">
                                 @error('price')
                                     <div class="alert alert-danger m-2">{{ $message }}</div>
                                 @enderror
@@ -54,18 +54,35 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Nhập tag</label>
-                                <select class="form-control tag_select_choose" name="tags[]" multiple="multiple">
+                                <select class="form-control tag_select_choose @error('tags') is-invalid @enderror" name="tags[]" multiple="multiple">
                                     <option value="">Chọn danh mục</option>
                                 </select>
+                                @error('tags')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group col-md-12">
                                 <label>Content</label>
-                                <textarea class="form-control tinymce_editor_init @error('content') is-invalid @enderror" rows="4" name="content" >{{ old('content'); }}</textarea>
+                                <textarea class="form-control tinymce_editor_init @error('content') is-invalid @enderror" rows="4" name="content">{{ old('content') }}</textarea>
                                 @error('content')
                                     <div class="alert alert-danger m-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label>Discount</label>
+                                <input type="checkbox" id="discountCheckbox" class="form-control"
+                                    placeholder="Nhập giá sản phẩm" name="stock" value="1">
+                            </div>
+                            <div class="form-group" id="priceSaleInput" style="display: none;">
+                                <label>---------->Giá sale</label>
+                                <input type="text" class="form-control @error('price_sale') is-invalid @enderror"
+                                    placeholder="Nhập giá sản phẩm" name="price_sale">
+                                @error('price_sale')
+                                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-12">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
