@@ -2,6 +2,10 @@
 @section('title')
     <title>Categories</title>
 @endsection
+@section('js')
+    <script src="{{ asset('adminConfig/slider/index/index.js') }}"></script>
+    <script src="{{ asset('vendors/sweetAlert/sweetalert2@11.js') }}"></script>
+@endsection
 @section('content')
     <div class="content-wrapper">
         @include('layouts.admin-layouts.content-header', ['name' => 'Customers', 'key' => ''])
@@ -23,8 +27,8 @@
                                         <th scope="row">{{ $value->id }}</th>
                                         <td>{{ $value->name }}</td>
                                         <td>
-                                            <a href="{{ route('customers.delete', ['id' => $value->id]) }}"
-                                                class="btn btn-danger">Xóa</a>
+                                            <a data-url="{{ route('customers.delete', ['id' => $value->id]) }}"
+                                                class="btn btn-danger action_delete">Xóa</a>
                                             <a href="{{ route('customers.edit', ['id' => $value->id]) }}"
                                                 class="btn btn-warning">Chỉnh sửa</a>
                                         </td>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,13 @@ Route::post('/login',[UserController::class,'postLogin'])->name('postLogin');
 
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
-Route::get('/profile',[UserController::class,'profile'])->name('profile');
+Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
+
+Route::get('/payment/{id}',[ProductController::class,'payment'])->name('payment');
+
+Route::post('/updateProfile/{id}',[UserController::class,'updateProfile'])->name('updateProfile');
+
+Route::get('/intro',[HomeController::class,'intro'])->name('intro');
 
 Route::get('/category/{slug}/{id}',[CategoryController::class,'index'])->name('category.product');
 
@@ -44,3 +51,8 @@ Route::get('/products/delete-cart',[ProductController::class,'deleteCart'])->nam
 Route::get('/detail/{slug}/{id}',[ProductController::class,'detail'])->name('detailProduct');
 
 Route::post('/detail/store-review/{id}',[ProductController::class,'storeReview'])->name('storeReview');
+
+Route::post('/checkout', [OrderController::class,'checkout'])->name('process.checkout');
+
+// Route::get('/search', [ProductController::class,'search'])->name('search');
+

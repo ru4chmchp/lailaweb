@@ -47,20 +47,7 @@
 
                                 <span class="badge badge-info mb-2">NEW</span>
 
-                                <!-- Rating -->
-                                <ul class="rating">
-
-                                    <li><i class="fas fa-star blue-text"></i></li>
-
-                                    <li><i class="fas fa-star blue-text"></i></li>
-
-                                    <li><i class="fas fa-star blue-text"></i></li>
-
-                                    <li><i class="fas fa-star blue-text"></i></li>
-
-                                    <li><i class="fas fa-star grey-text"></i></li>
-
-                                </ul>
+                                
 
                                 <!-- Card footer -->
                                 <div class="card-footer pb-0">
@@ -68,12 +55,12 @@
                                     <div class="row mb-0">
 
                                         <span
-                                            class="float-left"><strong>{{ number_format((string) $value->price) }}</strong></span>
+                                            class="float-left"><strong>{{ number_format((string) $value->price) }} VND</strong></span>
 
                                         <span class="float-right">
 
                                             <a class="add_to_cart" data-toggle="tooltip" data-placement="top" data-url="{{ route('product.addToCart', ['id' => $value->id]) }}"
-                                                title="Add to Cart"><i class="fas fa-shopping-cart fa-xl ml-3 "></i></a>
+                                                title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart fa-xl ml-3 "></i></a>
 
                                         </span>
 

@@ -16,9 +16,9 @@
         <div>
             <!-- Your content here -->
             <!-- Example content -->
-            <h2>{{ $newslettersid3->name }}</h2>
-            <p>{{ $newslettersid3->content }}</p>
-            <button href="" class="button-56">Click here</button>
+            <h2 class="h2-main">{{ $newslettersid3->name }}</h2>
+            <p class="p-main">{{ $newslettersid3->content }}</p>
+            <a href="{{ route('intro') }}" class="button-56 float-right">Bấm vào đây</a>
             <!-- End of example content -->
         </div>
         <!-- End of content -->

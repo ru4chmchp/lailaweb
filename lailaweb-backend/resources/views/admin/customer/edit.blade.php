@@ -25,11 +25,6 @@
                                     value="{{ $customers->name }}">
                             </div>
                             <div class="form-group">
-                                <label>Tên User</label>
-                                <input type="text" class="form-control" placeholder="Nhập tên User" name="name"
-                                    value="{{ $customers->name }}">
-                            </div>
-                            <div class="form-group">
                                 <label>Tên Email</label>
                                 <input type="email" class="form-control" placeholder="Nhập tên Email" name="email"
                                     value="{{ $customers->email }}">

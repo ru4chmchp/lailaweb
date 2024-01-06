@@ -21,4 +21,8 @@ class HomeController extends Controller
         $newslettersid3 = Newsletter::where('id',3)->first();
         return view('home.home', compact('sliders', 'categories', 'products', 'productsFeature', 'productsRecommend', 'newsletters','newslettersid3'));
     }
+    public function intro() {
+        $categories = Category::where('parent_id', 0)->get();
+        return view('others.intro',compact('categories'));
+    }
 }

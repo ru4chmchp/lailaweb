@@ -94,6 +94,9 @@
 
                         </section>
                         <!-- Section advertising 1 -->
+                        <h4 class="font-weight-bold mt-2 dark-grey-text"><strong>Sản phẩm giảm giá</strong></h4>
+
+                        <hr class="mb-2">
 
                         <!-- Section product list -->
                        @include('home.components.category-tab')

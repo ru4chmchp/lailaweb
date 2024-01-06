@@ -32,16 +32,11 @@
             <!-- First column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
-                <h6 class="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
+                <h6 class="text-uppercase font-weight-bold"><strong>Fishi'Sop</strong></h6>
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                    amet,
-
-                    consectetur
-
-                    adipisicing elit.</p>
+                <p>Shop cá cảnh Online Fishi'Sop chuyên cung cấp các dòng các thủy sinh, tép cảnh, cá cảnh nhập khẩu.</p>
 
             </div>
             <!-- First column -->
@@ -49,17 +44,15 @@
             <!-- Second column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
-                <h6 class="text-uppercase font-weight-bold"><strong>Products</strong></h6>
+                <h6 class="text-uppercase font-weight-bold"><strong>Hỗ trợ khách hàng</strong></h6>
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-                <p><a href="#!">MDBootstrap</a></p>
+                <p><a href="#!">Tra cứu đơn hàng</a></p>
 
-                <p><a href="#!">MDWordPress</a></p>
+                <p><a href="#!">Liên hệ</a></p>
 
-                <p><a href="#!">BrandFlow</a></p>
-
-                <p><a href="#!">Bootstrap Angular</a></p>
+                <p><a href="#!">Chính sách vận chuyển</a></p>
 
             </div>
             <!-- Second column -->
@@ -67,17 +60,17 @@
             <!-- Third column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
-                <h6 class="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
+                <h6 class="text-uppercase font-weight-bold"><strong>Tìm hiểu thêm</strong></h6>
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-                <p><a href="#!">Your Account</a></p>
+                <p><a href="{{ route('intro') }}">Giới thiệu</a></p>
 
-                <p><a href="#!">Become an Affiliate</a></p>
+                <p><a href="#!">Sản phẩm</a></p>
 
-                <p><a href="#!">Shipping Rates</a></p>
+                <p><a href="#!">Thông tin chung</a></p>
 
-                <p><a href="#!">Help</a></p>
+                <p><a href="#!">Quy mô trang trại</a></p>
 
             </div>
             <!-- Third column -->
@@ -85,7 +78,7 @@
             <!-- Fourth column -->
             <div class="col-md-4 col-lg-3 col-xl-3">
 
-                <h6 class="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
+                <h6 class="text-uppercase font-weight-bold"><strong>Kết nối</strong></h6>
 
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 

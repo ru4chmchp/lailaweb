@@ -4,10 +4,10 @@
     <section class="section">
 
         <ul class="list-group z-depth-1">
-            @foreach ($categories as $value)
+            @foreach ($categories as $key => $value)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
 
-                    <a class="dark-grey-text font-small" href="{{ route('category.product',['slug' => $value->slug, 'id' => $value->id]) }}"><i class="fa-solid fa-fish dark-grey-text mr-2"
+                    <a class="dark-grey-text font-small" href="{{ route('category.product',['slug' => $value->slug, 'id' => $value->id]) }}"><i class="{{ iconFontAwsomeware($key) }}"
                             aria-hidden="true"></i>
                         {{ $value->name }}</a>
                     @php

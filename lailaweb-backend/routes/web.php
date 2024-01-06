@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -27,9 +28,13 @@ Route::get('/admin', [AdminController::class, 'loginAdmin'])->name('loginadmin')
 Route::post('/admin', [AdminController::class, 'postLoginAdmin']);
 Route::get('/logout',[AdminController::class,'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+Route::get('/dashboard', [OrderController::class, 'index'])->name('order.dashboard');
+Route::get('/dashboard/product-list/{id}', [OrderController::class, 'detailOrder'])->name('order.detailOrder');
+Route::get('/accept/{id}', [OrderController::class, 'acceptOrder'])->name('order.acceptOrder');
+
 Route::prefix('admin')->group(function () {
     Route::prefix('/categories')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('categories.index')->middleware('can:category-list');

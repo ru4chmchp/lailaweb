@@ -257,11 +257,11 @@
             <!-- Links -->
 
             <!-- Search form -->
-            <form class="search-form" role="search">
+            <form class="search-form" role="search" action="">
 
                 <div class="form-group md-form my-0 waves-light">
 
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" name="name">
 
                 </div>
 

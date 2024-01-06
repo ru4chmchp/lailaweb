@@ -14,10 +14,21 @@
                                     class="dark-grey-text">{{ $productRecommends->name }}</a></strong>
                         </h5>
                         <span>Giá bán</span>
-                        <p class="mb-0"><strong>{{ number_format((string) $productRecommends->price) }}
-                                VND</strong></p>
-                        <a><span class="badge badge-danger">bestseller</span></a>
-                        <a class="btn btn-primary rounded add_to_cart" data-url="{{ route('product.addToCart', ['id' => $productRecommends->id]) }}">Add to card</a>
+                        @if ($productRecommends->stock === 1)
+                            <span class="new-price">{{ number_format($productRecommends->price_sale) }} VND</span>
+                            <span class="old-price">{{ number_format($productRecommends->price) }} VND</span> <br>
+                        @else
+                            <p class="mb-0"><strong>{{ number_format((string) $productRecommends->price) }}
+                                    VND</strong></p>
+                        @endif
+
+
+
+
+                        <a><span class="badge badge-success">bán chạy</span></a>
+                        <a class="btn btn-success rounded add_to_cart"
+                            data-url="{{ route('product.addToCart', ['id' => $productRecommends->id]) }}">Thêm vào<i
+                                class="fas fa-shopping-cart fa-xl ml-2"></i></a>
                     </div>
                     <div class="card-footer text-center">
                         <small class="text-muted text-center">Cập nhật :

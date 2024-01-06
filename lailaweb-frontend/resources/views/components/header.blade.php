@@ -33,7 +33,7 @@
 
                              <i class="fas fa-shopping-cart blue-text" aria-hidden="true"></i>
 
-                             <span class="clearfix d-none d-sm-inline-block">Cart</span>
+                             <span class="clearfix d-none d-sm-inline-block">Giỏ hàng</span>
 
                          </a>
                      </li>
@@ -42,16 +42,18 @@
                          <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i
                                  class="fas fa-envelope blue-text"></i>
 
-                             Contact <span class="sr-only">(current)</span></a>
+                             Phản hồi <span class="sr-only">(current)</span></a>
 
                      </li>
 
                      <li class="nav-item ml-3">
 
-                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i
-                                 class="fas fa-cog blue-text"></i>
+                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold text-center"
+                             href=""><i class="fa-solid fa-phone blue-text"></i>
 
-                             Settings</a>
+                             Hỗ trợ khách hàng <br>
+                             0706438053
+                         </a>
 
                      </li>
 
@@ -59,19 +61,20 @@
 
                          <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
                              @if (!Auth::check()) href="{{ route('login') }}"
-    @else
+                            @else
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" @endif>
-                             <i class="fas fa-user blue-text"></i> Profile
+                             <i class="fas fa-user blue-text"></i> Tài khoảng
                          </a>
 
                          @if (Auth::check())
                              <div class="dropdown-menu dropdown-menu-right dropdown-cyan">
                                  <a class="dropdown-item waves-effect waves-light dark-grey-text font-weight-bold"
                                      href="#">Hi! {{ Auth::user()->name }}</a>
-                                 <a class="dropdown-item waves-effect waves-light" href="{{ route('profile') }}">My account</a>
+                                 <a class="dropdown-item waves-effect waves-light"
+                                     href="{{ route('profile', ['id' => Auth::user()->id]) }}">Hồ sơ</a>
 
-                                 <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}">Log
-                                     out</a>
+                                 <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }}">Đăng
+                                     xuất</a>
                              </div>
                          @endif
 

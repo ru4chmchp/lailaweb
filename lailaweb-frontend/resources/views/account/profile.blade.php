@@ -25,9 +25,19 @@
                             <div class="card-body p-md-5">
                                 <div class="row justify-content-center">
                                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                        @if ($message = Session::get('success'))
+                                            <div class="alert alert-danger alert-block">
 
-                                        <form action="{{ route('postRegister') }}" class="mx-1 mx-md-4" method="POST">
+                                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                                <strong>{{ $message }}</strong>
+
+                                            </div>
+                                        @endif
+                                        
+                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Thông tin cá nhân</p>
+
+                                        <form action="{{ route('updateProfile', ['id' => $customers->id]) }}" class="mx-1 mx-md-4" method="POST">
                                             @csrf
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -35,7 +45,7 @@
                                                     <input type="text"
                                                         class="form-control @error('name') is-invalid @enderror"
                                                         name="name" placeholder="Your Name"
-                                                        value="{{ old('name') }}" />
+                                                        value="{{ $customers->name }}" />
                                                 </div>
                                             </div>
                                             @error('name')
@@ -47,7 +57,7 @@
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="email"
                                                         class="form-control @error('email') is-invalid @enderror"
-                                                        name="email" placeholder="Your Email" />
+                                                        name="email" placeholder="Your Email" value="{{ $customers->email }}"/>
                                                 </div>
                                             </div>
                                             @error('email')
@@ -59,7 +69,7 @@
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="password"
                                                         class="form-control @error('password') is-invalid @enderror"
-                                                        name="password" placeholder="Password" />
+                                                        name="password" placeholder="Password" value="{{ $customers->password }}"/>
                                                 </div>
                                             </div>
                                             @error('password')
@@ -67,34 +77,37 @@
                                             @enderror
 
                                             <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
-                                                    <input type="password" class="form-control" name="re_password"
-                                                        placeholder="Repeat your password" />
+                                                    <input type="text"
+                                                        class="form-control @error('address') is-invalid @enderror"
+                                                        name="address" placeholder="Địa chỉ" value="{{ $customers->address }}"/>
                                                 </div>
                                             </div>
-
-                                            <div class="form-check d-flex justify-content-center mb-5">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    Tôi đồng ý với tất cả các điều trên
-                                                </label>
+                                            @error('address')
+                                                <div class="alert alert-danger m-2">{{ $message }}</div>
+                                            @enderror
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input type="number"
+                                                        class="form-control @error('phone') is-invalid @enderror"
+                                                        name="phone" placeholder="Số điện thoại" value="{{ $customers->phone }}"/>
+                                                </div>
                                             </div>
+                                            @error('phone')
+                                                <div class="alert alert-danger m-2">{{ $message }}</div>
+                                            @enderror
+
 
                                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                                <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
                                             </div>
 
                                         </form>
 
                                     </div>
-                                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                            class="img-fluid" alt="Sample image">
-
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

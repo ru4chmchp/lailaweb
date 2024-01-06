@@ -11,7 +11,7 @@ class AdminController extends Controller
     {
        
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('order.dashboard');
         }
         return view('login');
     }
@@ -21,7 +21,7 @@ class AdminController extends Controller
         $remember = $request->has('remember_me');
 
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('order.dashboard');
         } else {
             return redirect()->back()->with('error', 'Invalid email or password');
         }

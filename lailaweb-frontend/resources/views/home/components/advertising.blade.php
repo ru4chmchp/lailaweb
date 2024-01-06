@@ -18,12 +18,10 @@
 
 
 
-                         <h2 class="card-title font-weight-bold pt-5"><strong>{{ $item->name }}</strong></h2>
+                         <h2 class="card-title font-weight-bold pt-5 title-h2"><strong>{{ $item->name }}</strong></h2>
 
-                         <p class="">{{ $item->content }}</p>
+                         <p class="title-content">{{ $item->content }}</p>
 
-                         <a class="btn mr-0 btn-primary btn-rounded clearfix d-none d-md-inline-block">
-                             Mua ngay</a>
 
                      </div>
 

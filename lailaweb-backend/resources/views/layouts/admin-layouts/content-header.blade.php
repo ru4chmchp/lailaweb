@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a
-                            href="{{ $name === 'Dashboard' ? route('dashboard') : route(strtolower($name) . '.index') }}">{{ $name }}</a>
+                            href="{{ $name === 'Dashboard' ? route('order.dashboard') : route(strtolower($name) . '.index') }}">{{ $name }}</a>
                     </li>
                     <li class="breadcrumb-item active">{{ $key }}</li>
                 </ol>

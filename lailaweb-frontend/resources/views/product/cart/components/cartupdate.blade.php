@@ -123,9 +123,9 @@
 
                                 <td>
 
-                                    <button type="button" class="btn btn-sm btn-primary cart_delete" data-id="{{ $value }}">X
+                                    <a href="" class="btn btn-sm btn-primary cart_delete" data-id="{{ $value }}">X
 
-                                    </button>
+                                    </a>
 
                                 </td>
 
@@ -158,14 +158,11 @@
                             </td>
 
                             <td colspan="3" class="text-right">
-
-                                <button type="button" class="btn btn-primary btn-rounded">Complete
-                                    purchase
-
-                                    <i class="fas fa-angle-right right"></i>
-
-                                </button>
-
+                                @if (Auth::check())
+                                <a href="{{ route('payment', ['id' => Auth::user()->id]) }}" class="btn btn-primary btn-rounded">Thanh toán<i class="fas fa-angle-right right"></i></a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-primary btn-rounded">Đăng nhập để thanh toán</a>
+                            @endif
                             </td>
 
                         </tr>

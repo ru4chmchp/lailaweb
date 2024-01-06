@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-gradient-dark">
-    <a href="{{ route('dashboard') }}" class="brand-link">
+    <a href="{{ route('order.dashboard') }}" class="brand-link">
         <img src="{{ asset('adminResource\docs\assets\img\fishlogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3 bg-white" style="opacity: .8">
         <span class="brand-text font-weight-normal">Dashboard</span>
